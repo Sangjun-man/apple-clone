@@ -5,14 +5,15 @@ const StyledSecondNavBar = styled.div`
     display: flex;
     justify-content : space-between;
     align-items: center;
-    height : 44px;
+    height : 52px;
+    border-bottom : 1px solid #ddd;
     max-width : 1000px;
     margin: 0 auto 0 0 ;
 `
 const StyledEmphasizeItem = styled.a`
     font-size: 20px;
     font-weight: bold;
-    margin 0 auto 0 0; 
+    margin-right : auto; 
     `
 const StyledNavItem = styled.a`
     cursor:pointer;
