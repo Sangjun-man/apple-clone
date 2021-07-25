@@ -1,6 +1,6 @@
 import MainPage from './pages/MainPage'
-
-
+import { ThemeProvider } from 'styled-components';
+import theme from './style/theme'
 
 
 
@@ -8,7 +8,10 @@ import MainPage from './pages/MainPage'
 function App() {
 
 
-  return (
-   <MainPage />  );
+  return (<>
+    <ThemeProvider theme={ theme }>
+      <MainPage />
+      </ThemeProvider>
+   </>);
 }
 export default App;

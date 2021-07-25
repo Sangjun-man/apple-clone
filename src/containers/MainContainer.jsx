@@ -16,41 +16,42 @@ const MainContainer = (props) => {
     
     return (
     <>
-        <PageViewContainer>
+            <PageViewContainer>
+                <CustomContainer>
             <MainNavBar navItems={navItems} />
-                <SecondNavBar emphasize={"AirMug Pro"} navItems={secondNavItems}></SecondNavBar>
-
-                <ScrollSection id={"scroll-0"}>
+                    <SecondNavBar emphasize={"AirMug Pro"} navItems={secondNavItems}></SecondNavBar>
+                </CustomContainer>
+            
+            <ScrollSection >
                     {scrollParagraph.map((data) => {
+                        return (<CustomContainer margin={"0 5px 3em 5px;"}>{
+                            data.map((obj) => { return <Reducer obj={obj}> </Reducer> })}
+                        </CustomContainer>)       
+                        })}
+            </ScrollSection>
+            <ScrollSection id={"scroll-1"} paragraph={scrollParagraph2}>
+                {scrollParagraph2.map((data) => {
                         return (<CustomContainer margin={"0 0 3em 0;"}>{
                             data.map((obj) => { return <Reducer obj={obj}> </Reducer> })}
                         </CustomContainer>)       
                         })}
-                </ScrollSection>
-                <ScrollSection id={"scroll-1"} paragraph={scrollParagraph2}>
-                    {scrollParagraph2.map((data) => {
+            </ScrollSection>
+            <ScrollSection id={"scroll-2"} paragraph={scrollParagraph3}>
+                {scrollParagraph3.map((data) => {
                             return (<CustomContainer margin={"0 0 3em 0;"}>{
                                 data.map((obj) => { return <Reducer obj={obj}> </Reducer> })}
                             </CustomContainer>)       
                             })}
-                </ScrollSection>
-                <ScrollSection id={"scroll-2"} paragraph={scrollParagraph3}>
-                    {scrollParagraph3.map((data) => {
+            </ScrollSection>
+            <ScrollSection id={"scroll-3"} paragraph={scrollParagraph4}>
+                {scrollParagraph4.map((data) => {
                                 return (<CustomContainer margin={"0 0 3em 0;"}>{
                                     data.map((obj) => { return <Reducer obj={obj}> </Reducer> })}
                                 </CustomContainer>)       
                                 })}
-                </ScrollSection>
-                <ScrollSection id={"scroll-3"} paragraph={scrollParagraph4}>
-                    {scrollParagraph4.map((data) => {
-                                    return (<CustomContainer margin={"0 0 3em 0;"}>{
-                                        data.map((obj) => { return <Reducer obj={obj}> </Reducer> })}
-                                    </CustomContainer>)       
-                                    })}
-                </ScrollSection>
-            
-            </PageViewContainer>
-            <Footer />
+            </ScrollSection>
+        </PageViewContainer>
+        <Footer />
     </>
     );
 }

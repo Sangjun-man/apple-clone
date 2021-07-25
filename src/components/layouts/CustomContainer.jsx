@@ -7,6 +7,7 @@ import styled,{css } from 'styled-components';
 
 const StyledContainer = styled.div`
   margin-bottom:2rem;
+  max-width : 1000px;
   ${(props) => {
     (props) && css`
     margin : ${props.margin};

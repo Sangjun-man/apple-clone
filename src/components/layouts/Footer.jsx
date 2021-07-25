@@ -2,9 +2,11 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const StyledFooter = styled.div`
-    height : 2rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height : 7rem;
     background-color: blue;
-    text-align: center;
     color:white;
 
 `

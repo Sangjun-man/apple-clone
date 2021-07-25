@@ -10,7 +10,7 @@ const StyledPageViewContainer = styled.div`
 
 `
 const StyledPageContents = styled.div`
-    width : 1000px;
+    max-width : 1000px;
 `
 
 

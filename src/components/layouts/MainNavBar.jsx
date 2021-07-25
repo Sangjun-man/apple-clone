@@ -9,12 +9,15 @@ const StyledNavItem = styled.a`
 
 
 const StyledMainNavbar = styled.div`
+
     display: flex;
     justify-content : space-between;
     align-items: center;
     height : 44px;
+    width:100%;
     max-width : 1000px;
-    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 `
 
 
