@@ -8,10 +8,33 @@ import theme from './style/theme'
 function App() {
 
 
+
+  
+// let [viewHeight, viewWidth, positionY] = [0, 0, 0]
+// const dispatch = useDispatch();
+
+
+// const onScroll = () => {
+//   dispatch(set)
+// }
+// const onResize = (viewWidth) => {
+//   dispatch(setHeight(viewWidth));
+  
+// }
+
+// useEffect(() => {
+//   viewHeight = window.innerHeight;
+//   viewWidth = window.innerWidth;
+//   window.addEventListener('scroll', onScroll)
+//   window.addEventListener('resize', () => onResize(viewHeight));
+// }, [])
+
+
+  
   return (<>
     <ThemeProvider theme={ theme }>
       <MainPage />
-      </ThemeProvider>
+    </ThemeProvider>
    </>);
 }
 export default App;

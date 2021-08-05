@@ -1,5 +1,11 @@
-const [TITLE, MAIN_MSG,MAIN_MSG_STRONG,  MAIN_MSG_SMALL, DESC_MSG, DESC_MSG_STRONG, DESC_MSG_SMALL, MID_MSG_STRONG, MID_MSG, MID_MSG_CAPTION]
-    = ["TITLE", "MAIN_MSG","MAIN_MSG_STRONG", "MAIN_MSG_SMALL", "DESC_MSG", "DESC_MSG_STRONG", "DESC_MSG_SMALL","MID_MSG_STRONG", "MID_MSG", "MID_MSG_CAPTION"]
+const [MAIN_MSG_TITLE, MAIN_MSG, MAIN_MSG_STRONG, MAIN_MSG_SMALL] = ["MAIN_MSG_TITLE", "MAIN_MSG","MAIN_MSG_STRONG", "MAIN_MSG_SMALL"]
+const [DESC_MSG, DESC_MSG_STRONG, DESC_MSG_SMALL] = [ "DESC_MSG", "DESC_MSG_STRONG", "DESC_MSG_SMALL"]
+const [MID_MSG_STRONG, MID_MSG, MID_MSG_CAPTION] = ["MID_MSG_STRONG", "MID_MSG", "MID_MSG_CAPTION"]
+    
+
+
+
+
 
 const [PIN] = ["PIN"]
 
@@ -10,7 +16,7 @@ export const secondNavItems = ["개요", "제품사양", "구입하기"]
 export const scrollParagraph = [
     [
         {
-            tag:TITLE,
+            tag: MAIN_MSG_TITLE,
             text: "AirMug Pro"
         }
     ],

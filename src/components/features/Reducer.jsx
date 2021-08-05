@@ -1,30 +1,15 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const StyledTitle = styled.div`
-
-font-size:4rem;
-font-weight: bold;
-text-align: center;
-${(props) => `
-    @media ( min-width : ${props.theme.size.tabletS}){
-        font-size:9vw;
-
-    }
-    `
-    }
-
-`
 
 const StyledMainMessage = styled.div`
 display: flex;
-margin: 5px 0;
-align-items: center;
-justify-content: center;
+align-items:center;
+justify-content:center;
 font-size: 2.5rem;
 font-weight:bold;
 text-align: center;
-line-height: 1.2;
+line-height: 1.4;
 
 ${(props) => props.strong &&
     css`
@@ -41,9 +26,20 @@ ${(props) => props.small &&
     `
 }
 
+${(props) => props.title &&
+    css`
+    position : relative;
+    font-size:4rem;
+    font-weight: bold;
+    text-align: center;
+    `
+}
+
 @media ( min-width : ${(props)=>( props.theme.size.tabletS )}) {
 
-    
+    font-size:4vw;
+
+
     ${(props) => props.strong &&
         css`
         font-size:6vw;
@@ -53,9 +49,13 @@ ${(props) => props.small &&
         css`
         margin-bottom: 0.5em;
         font-size: 1.5vw;
-        `
-
-
+        `}
+    ${(props) => props.title &&
+    css`
+        font-size:9vw;
+    `
+    }
+    
 }
 
 `
@@ -67,6 +67,7 @@ margin: 0 auto;
 padding: 0 1rem;
 font-size: 1.2rem;
 color: #888;
+
 
 
 ${(props) => props.strong &&
@@ -90,6 +91,13 @@ ${(props) => props.small &&
     `
 }
 
+// @media ( min-width : ${(props)=>( props.theme.size.tabletS )}) {
+
+//         margin-bottom: 0.5em;
+//         font-size: 2rem;
+        
+        
+//     }
 `
 
 
@@ -113,7 +121,6 @@ ${(props) => props.caption &&
 
     @media ( min-width : ${(props)=>( props.theme.size.tabletS )}) {
 
-    
         ${(props) => props.strong &&
             css`
             font-size:4vw;
@@ -122,11 +129,12 @@ ${(props) => props.caption &&
         ${(props) => props.caption && 
             css`
             margin-bottom: 0.5em;
-            font-size: 2rem
+            font-size: 1.8rem
             `
     
     
     }
+}
 
 `
 
@@ -143,13 +151,9 @@ ${(props) =>
 `
 
 
-const Title = ({ children }) => {
+const MainMessage = ({ children, small, strong ,title}) => {
     return (
-        <StyledTitle> {children} </StyledTitle> );
-}
-const MainMessage = ({ children, small, strong }) => {
-    return (
-        <StyledMainMessage small={small} strong={strong}> {children} </StyledMainMessage> );
+        <StyledMainMessage small={small} strong={strong} title={title}> {children} </StyledMainMessage> );
 }
 const DescriptionMessage = ({ children, strong , small}) => {
     return (
@@ -166,10 +170,11 @@ const Pin = ({width ,height}) => {
 
 const Reducer = ({ obj } ) => {
         switch (obj.tag) {
-            case "TITLE":
-                return (<Title>{obj.text} </Title>);
+            case "MAIN_MSG_TITLE":
+                return (<MainMessage title> {obj.text} </MainMessage>);
             case "MAIN_MSG":
-                return (<MainMessage>{obj.text}</MainMessage>);case "MAIN_MSG_STRONG":
+                return (<MainMessage>{obj.text}</MainMessage>);
+            case "MAIN_MSG_STRONG":
                 return (<MainMessage strong>{obj.text}</MainMessage>);
             case "MAIN_MSG_SMALL":
                 return (<MainMessage small>{obj.text}</MainMessage>);
@@ -184,7 +189,7 @@ const Reducer = ({ obj } ) => {
             case "MID_MSG_STRONG":
                 return (<MidMessage strong>{obj.text}</MidMessage>);
             case "MID_MSG_CAPTION":
-                return (<MidMessage caption >{obj.text}</MidMessage>);
+                return (<MidMessage caption>{obj.text}</MidMessage>);
             case "PIN":
                 return (<Pin width={obj.width} height={obj.height}> </Pin>);
             default:
