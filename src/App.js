@@ -10,14 +10,30 @@ import {
 } from "./modules/size";
 import { useEffect } from "react";
 import playAnimation from "./style/animation/animation";
+import { isCompositeComponentWithType } from "react-dom/test-utils";
 
-function App(props) {
+export const appValue = {
+  scrolloffsetY: 0,
+  prevScrollHeight: 0,
+};
+//redux 디스패치하고 값받아오고 하는데 너무오래걸리니깐 App내에서만 쓰는 밸류로
+
+const App = (props) => {
   const dispatch = useDispatch();
+  // let { scrolloffsetY, prevScrollHeight } = appValue;
+  //참조값으로 받기 가능?
+  const { currentScene, sceneInfo } = useSelector((store) => store.size);
   const { scrolloffsetY } = useSelector((store) => store.scroll);
-  const { currentScene, scrollHeight, sceneInfo } = useSelector(
-    (store) => store.size
-  );
-  const store = useStore();
+  // const store = useStore();
+
+  useEffect(() => {
+    onResize();
+    // onScroll();
+
+    window.addEventListener("resize", onResize);
+    // window.addEventListener("scroll", onScroll);
+    //addEventListener는 선언될때 함수를 따로 저장해두는 듯 하다,
+  }, []);
 
   const onResize = () => {
     // 초기 scene들의 Height값 정해주는 함수
@@ -60,14 +76,6 @@ function App(props) {
   };
 
   useEffect(() => {
-    onResize();
-    onScroll();
-
-    window.addEventListener("resize", onResize);
-    window.addEventListener("scroll", onScroll);
-    //addEventListener는 선언될때 함수를 따로 저장해두는 듯 하다,
-  }, []);
-  useEffect(() => {
     onCheckCurrentScene();
   }, [dispatch, scrolloffsetY]);
 
@@ -78,5 +86,5 @@ function App(props) {
       </ThemeProvider>
     </>
   );
-}
+};
 export default App;

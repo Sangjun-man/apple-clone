@@ -12,25 +12,21 @@ const initSizeState = {
       sceneNum: 0,
       type: "sticky",
       scrollHeight: 0,
-      onAir: "block",
     },
     {
       sceneNum: 1,
       type: "normal",
       scrollHeight: 0,
-      onAir: "hidden",
     },
     {
       sceneNum: 2,
       type: "sticky",
       scrollHeight: 0,
-      onAir: "hidden",
     },
     {
       sceneNum: 3,
       type: "sticky",
       scrollHeight: 0,
-      onAir: "hidden",
     },
   ],
 };
@@ -68,11 +64,6 @@ const size = (state = initSizeState, action) => {
       return {
         ...state,
         currentScene: action.payload,
-        sceneInfo: state.sceneInfo.map((scene) =>
-          scene.sceneNum === action.payload
-            ? { ...scene, onAir: "block" }
-            : { ...scene, onAir: "hidden" }
-        ),
       };
     }
     default:

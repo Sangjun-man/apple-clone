@@ -21,6 +21,7 @@ const ScrollSection = forwardRef(
         key={key}
         style={{
           height: height,
+          position: "relative",
         }}
         className={className}
         ref={ref}

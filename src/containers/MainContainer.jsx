@@ -12,8 +12,8 @@ import PageViewContainer from "../components/layouts/PageViewContainer";
 import MainNavBar from "../components/layouts/MainNavBar";
 import SecondNavBar from "../components/layouts/SecondNavBar";
 import ScrollSection from "../components/layouts/ScrollSection";
-import Footer from "../components/layouts/Footer";
 import CustomContainer from "../components/layouts/CustomContainer";
+import Opacity from "../components/Opacity";
 import Reducer from "../components/features/Reducer";
 // index.js 로 레이아웃 다 가져오기???
 import { useSelector } from "react-redux";
@@ -32,15 +32,17 @@ const MainContainer = (props) => {
     <>
       <PageViewContainer>
         <CustomContainer>
-          <CustomContainer absolute>
+          {/* <CustomContainer absolute>
             <MainNavBar navItems={navItems} />
             <SecondNavBar
               emphasize={"AirMug Pro"}
               navItems={secondNavItems}
             ></SecondNavBar>
-          </CustomContainer>
+          </CustomContainer> */}
+
           <ScrollSection height={sectionHeight}>
-            {scrollParagraph.map((data) => {
+            <Opacity />
+            {/* {scrollParagraph.map((data) => {
               return (
                 <CustomContainer padding={"0 5px 3em 5px;"}>
                   {data.map((obj) => {
@@ -48,10 +50,10 @@ const MainContainer = (props) => {
                   })}
                 </CustomContainer>
               );
-            })}
+            })} */}
           </ScrollSection>
           <ScrollSection height={sceneInfo[1].scrollHeight}>
-            {scrollParagraph2.map((data) => {
+            {/* {scrollParagraph2.map((data) => {
               return (
                 <CustomContainer padding={"0 0 3em 0;"}>
                   {data.map((obj) => {
@@ -59,10 +61,10 @@ const MainContainer = (props) => {
                   })}
                 </CustomContainer>
               );
-            })}
+            })} */}
           </ScrollSection>
           <ScrollSection height={sectionHeight}>
-            {scrollParagraph3.map((data) => {
+            {/* {scrollParagraph3.map((data) => {
               return (
                 <CustomContainer padding={"0 0 3em 0;"}>
                   {data.map((obj) => {
@@ -70,10 +72,10 @@ const MainContainer = (props) => {
                   })}
                 </CustomContainer>
               );
-            })}
+            })} */}
           </ScrollSection>
           <ScrollSection height={sectionHeight}>
-            {scrollParagraph4.map((data) => {
+            {/* {scrollParagraph4.map((data) => {
               return (
                 <CustomContainer padding={"0 0 3em 0;"}>
                   {data.map((obj) => {
@@ -81,11 +83,10 @@ const MainContainer = (props) => {
                   })}
                 </CustomContainer>
               );
-            })}
+            })} */}
           </ScrollSection>
         </CustomContainer>
       </PageViewContainer>
-      <Footer />
     </>
   );
 };

@@ -12,7 +12,6 @@ const StyledMainMessage = styled.div`
   font-weight: bold;
   text-align: center;
   line-height: 1.4;
-
   ${(props) =>
     props.strong &&
     css`
@@ -27,8 +26,7 @@ const StyledMainMessage = styled.div`
       margin-bottom: 0.5em;
       font-size: 1.2rem;
     `}
-
-${(props) =>
+    ${(props) =>
     props.title &&
     css`
       position: relative;
@@ -37,8 +35,7 @@ ${(props) =>
       text-align: center;
       top: 30vh;
     `}
-
-@media ( min-width : ${(props) => props.theme.size.tabletS}) {
+    @media (min-width: ${(props) => props.theme.size.tabletS}) {
     font-size: 4vw;
 
     ${(props) =>
